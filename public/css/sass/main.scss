@@ -1,12 +1,79 @@
-@import 'bootstrap';
 @import 'font-awesome/font-awesome';
 
 
 body {
     font-family: Helvetica, sans-serif;
     margin: 0;
+    background: royalblue;
+}
+
+*:focus {
+    outline: 0 none!important;
+    box-shadow: none;
 }
 
 h1, h2, h3 {
     margin: 0;
+}
+
+.search-input {
+    background: rgba(100, 100, 100, 1);
+    border:none;
+    font-size: 1.5em;
+    padding: 0.2em 0.6em;
+    width: 100%;
+    color: white;
+    &::placeholder {
+        color: white;
+    }
+
+}
+
+.buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+}
+
+button {
+    background: orangered;
+    font-weight: bolder;
+    margin: 1em 0.5em;
+    color: white;
+    cursor: pointer;
+    &:focus {
+        box-shadow: none!important;
+        outline: none;
+    }
+}
+
+.list-container {
+    list-style: none;
+    padding: 0;
+    li {
+        border-bottom: 1px solid lightgrey;
+        padding: 0.5em;
+        margin: 0.2em 0;
+        display: flex;
+        background: lightblue;
+        flex-direction: row;
+        h3 {
+            flex: 2;
+        }
+        span {
+            flex: 0.2;
+        }
+        div {
+            margin-right: 2em;
+            cursor: pointer;
+            color: red;
+            font-weight: bolder;
+            flex: 0;
+        }
+    }
+}
+
+.pd-none {
+    padding: 0;
 }
