@@ -1,0 +1,21 @@
+{
+  "name": "angular01",
+  "description": "",
+  "main": "app.js",
+  "authors": [
+    "Q Collins"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "smoothscroll-for-websites": "^1.4.6"
+  }
+}
