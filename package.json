@@ -1,0 +1,8 @@
+{
+  "name": "angular01",
+  "version": "1.0.0",
+  "description": "angular tutorial",
+  "main": "index.js",
+  "author": "qcollins",
+  "license": "MIT"
+}
