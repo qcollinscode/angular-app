@@ -28,6 +28,7 @@ Q:::::::QQ::::::::Q   C:::::CCCCCCCC::::C  C:::::CCCCCCCC::::CO:::::::OOO:::::::
      bodyParser = require("body-parser"),
      PORT = process.env.PORT || 3000,
      IP = process.env.IP,
+     compression = require('compression'),
      app = express();
 
 
@@ -36,7 +37,7 @@ Q:::::::QQ::::::::Q   C:::::CCCCCCCC::::C  C:::::CCCCCCCC::::CO:::::::OOO:::::::
  */
 
 /** Static Directory **/
- app.use(bodyParser.urlencoded({extended: true}), express.static("public"));
+ app.use(compression(),bodyParser.urlencoded({extended: true}), express.static("public"));
 
 /** View Engine **/
 //  app.set("view engine", "ejs");
