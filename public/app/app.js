@@ -1,45 +1,69 @@
-var app = angular.module('app',[]);
+var app = angular.module('app',['ngRoute', 'ngAnimate']);
 
-app.config(function() {
+app.config(['$routeProvider',function($routeProvider) {
+    $routeProvider
+        .when('/home', {
+            templateUrl: 'views/home.html',
+            controller: 'appController'
+        })
+        .when('/directory', {
+            templateUrl: 'views/directory.html',
+            controller: 'appController'
+        })
+        .when('/contact', {
+            templateUrl: 'views/contact.html',
+        })
+        .otherwise({
+            redirectTo: '/home'
+        })
+}]);
 
-});
+app.directive('randomFood', [function() {
 
-app.run(function() {
+    return {
+        restrict: 'E',
+        scope:  {
+            foods: '=',
+            title: '=',
+        },
+        templateUrl: 'views/random.html',
+        transclude: true,
+        replace: true,
+        controller: function($scope) {
+            $scope.random = Math.floor(Math.random() * 4);
+        },
+    };
 
-});
+}]);
 
-app.controller('appController', ['$scope', function($scope) {
+app.controller('appController', ['$scope', '$http', function($scope, $http) {
+
+    $scope.removeAll = function() {
+        $scope.foods = [];
+    }
+
+    $scope.addFood = function() {
+        $scope.foods.push({
+            name: $scope.newFood.name,
+            category: $scope.newFood.category,
+            rate: parseInt($scope.newFood.rate),
+            available: true
+        });
+
+        $scope.newFood.name = "";
+        $scope.newFood.category = "";
+        $scope.newFood.rate = "";
+    };
 
     $scope.removeFood = function(food) {
         var removeFood = $scope.foods.indexOf(food);
         $scope.foods.splice(removeFood, 1);
-    }
+    };
 
-    $scope.foods = [
-        {
-            name: "Peppermint",
-            category: "Candy",
-            rate: .5,
-            available: true
-        },
-        {
-            name: "Cheese Cake",
-            category: "Cake",
-            rate: 15,
-            available: true
-        },
-        {
-            name: "Sprite",
-            category: "Drink",
-            rate: 1,
-            available: true
-        },
-        {
-            name: "Chocolate Milk",
-            category: "Milk",
-            rate: 2.5,
-            available: true
-        }
-    ];
+    $http.get('data/foods.json').then(function(response) {
+        $scope.foods = response.data;
+    });
+
+
 
 }]);

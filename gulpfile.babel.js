@@ -72,7 +72,15 @@ gulp.task('html', () => {
  */
 gulp.task('scripts', () => {
   return watch(['public/js/dev/*.js', 'public/app/*.js'], () => {
-    gulp.src(['public/js/dev/jquery.min.js', 'public/js/dev/tether.min.js', 'public/js/dev/bootstrap.min.js', 'public/js/dev/angular.min.js', 'public/app/app.js'])
+    gulp.src([
+      'public/js/dev/jquery.min.js', 
+      'public/js/dev/tether.min.js', 
+      'public/js/dev/bootstrap.min.js', 
+      'public/js/dev/angular.min.js', 
+      'public/js/dev/angular-route.min.js',
+      'public/js/dev/angular-animate.min.js',
+      'public/app/app.js'
+      ])
     .pipe(plumber())
     // .pipe(babel({
     //   presets: ['es2015']

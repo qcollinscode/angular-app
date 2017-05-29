@@ -1,0 +1,14 @@
+<div class="content container contact-page">
+    <form action="" novalidate> 
+        <div class="row">
+            <input class="text-input col-sm-5" type="text" placeholder="Name" name="name"  ng-model="contact.name" ng-required="true">
+            <input class="text-input col-sm-5 push-sm-2" type="email" placeholder="Email" name="email"  ng-model="contact.email" ng-required="true">
+        </div>
+        <div class="row">
+            <textarea class="col-sm-12" placeholder="Your Message" name="message" ng-model="contact.message"  ng-required="true"></textarea>
+        </div>
+        <div class="row">
+            <button class="button" type="text" value="Send">Send</button> 
+        </div>
+    </form>
+</div>

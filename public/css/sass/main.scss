@@ -4,7 +4,6 @@
 body {
     font-family: Helvetica, sans-serif;
     margin: 0;
-    background: royalblue;
 }
 
 *:focus {
@@ -16,17 +15,42 @@ h1, h2, h3 {
     margin: 0;
 }
 
-.search-input {
-    background: rgba(100, 100, 100, 1);
+.text-input {
+    background: #fff;
     border:none;
     font-size: 1.5em;
     padding: 0.2em 0.6em;
     width: 100%;
-    color: white;
+    font-weight: bolder;
+    color: black;
+    border-bottom: 5px solid rgba(0, 0, 0, 0.4);
+    border-radius: 0;
     &::placeholder {
-        color: white;
+        color: rgba(0, 0, 0, 0.4);
+        font-weight: bolder;
+    }
+    &:focus {
+        border-color: rgba(0, 0, 0, 0.4);
     }
 
+}
+
+textarea {
+    background: #fff;
+    border:none;
+    font-size: 1.5em;
+    resize: none;
+    width: 100%;
+    margin-top: 1em;
+    border-bottom: 5px solid rgba(0, 0, 0, 0.4);
+    font-weight: bolder;
+    color: black;
+    border-radius: 0;
+    &::placeholder {
+        color: rgba(0, 0, 0, 0.4);
+        font-weight: bolder;
+
+    }
 }
 
 .buttons {
@@ -36,33 +60,75 @@ h1, h2, h3 {
     width: 100%;
 }
 
-button {
-    background: orangered;
+.button {
+    background: transparent;
     font-weight: bolder;
     margin: 1em 0.5em;
-    color: white;
+    color: rgba(0, 0, 0, 0.7);
+    border: 5px solid rgba(0, 0, 0, 0.7);
     cursor: pointer;
+    transition: 0.2s all;
     &:focus {
         box-shadow: none!important;
         outline: none;
+    }
+    &:hover {
+        background: rgba(0, 0, 0, 0.1);
     }
 }
 
 .list-container {
     list-style: none;
     padding: 0;
+    overflow: hidden;
+    img {
+        padding-right: 1.3em;
+    }
+    li.ng-enter {
+        transition: 0.2s linear all;
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    li.ng-enter.ng-enter-active {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    
+    li.ng-leave {
+        transition: 0.4s linear all;
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+    li.ng-leave.ng-leave-active {
+        opacity: 0;
+        transform: translateX(-100%);
+    }
+
+    li.ng-leave-stagger {
+        transition-delay: 0.2s;
+        transition-duration: 0;
+    }
+
     li {
         border-bottom: 1px solid lightgrey;
         padding: 0.5em;
         margin: 0.2em 0;
         display: flex;
-        background: lightblue;
+        background: rgba(0, 0, 0, 0.1);
         flex-direction: row;
+
         h3 {
             flex: 2;
+            font-weight: bolder;
+            color: rgba(0, 0, 0, 0.7);
+            margin-right: 2em;
         }
         span {
-            flex: 0.2;
+            margin-right: 2em;
+            font-weight: bolder;
+            color: rgba(0, 0, 0, 0.7);
         }
         div {
             margin-right: 2em;
@@ -76,4 +142,71 @@ button {
 
 .pd-none {
     padding: 0;
+}
+
+.navbar {
+    background: transparent!important;
+    a {
+        color: black!important;
+        font-weight: bold;
+    }
+    .nav-link {
+        transition: 0.2s;
+        &:hover {
+            background: lightgrey;
+            color: white;
+        }
+    }
+}
+
+.home-page {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin-top: 5em;
+    h1 {
+        font-weight: bolder;
+        margin-bottom: 0.4em;
+    }
+    img {
+        transition: 0.7s all;
+        padding: 1em;
+        &:hover {
+            transform: rotate(360deg);
+        }
+    }
+}
+
+.directory-page {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin-top: 5em;
+}
+
+
+main.ng-enter {
+    transition: 0.2s linear all;
+    opacity: 0;
+}
+
+main.ng-enter.ng-enter-active {
+    opacity: 1;
+}
+
+main.ng-leave {
+    transition: 0.2s linear all;
+    opacity: 1;
+}
+
+main.ng-leave.ng-leave-active {
+    opacity: 0;
+}
+
+input.ng-invalid.ng-touched, textarea.ng-invalid.ng-touched {
+    border-bottom: 5px solid red;
 }

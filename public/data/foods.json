@@ -1,0 +1,30 @@
+[
+    {
+        "name": "Watermelon",
+        "category": "Fruit",
+        "rate": 3.50,
+        "available": true,
+        "image": "img/watermelon.png"
+    },
+    {
+        "name": "Grapes",
+        "category": "Fruit",
+        "rate": 1.50,
+        "available": true,
+        "image": "img/grapes.png"
+    },
+    {
+        "name": "Tomatoes",
+        "category": "Vegetable",
+        "rate": 2.4,
+        "available": true,
+        "image": "img/tomato.png"
+    },
+    {
+        "name": "Strawberries",
+        "category": "Fruit",
+        "rate": 2.5,
+        "available": true,
+        "image": "img/strawberry.png"
+    }
+]
