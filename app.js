@@ -54,10 +54,11 @@ Q:::::::QQ::::::::Q   C:::::CCCCCCCC::::C  C:::::CCCCCCCC::::CO:::::::OOO:::::::
    * GET ROUTES
    */
 
-   /** Home **/
-  //  app.get("/", function(req, res) {
-  //    res.render("home");
-  //  });
+   app.get("/*", function(req, res) {
+     res.sendFile(__dirname + "/public/index.html");
+   });
+
+
 
  /************************************
   * LISTENING PORT SETUP

@@ -1,14 +1,38 @@
 <div class="content container contact-page">
-    <form action="" novalidate> 
+
+    <form name="contactForm" ng-submit="sendMessage()" novalidate> 
         <div class="row">
-            <input class="text-input col-sm-5" type="text" placeholder="Name" name="name"  ng-model="contact.name" ng-required="true">
-            <input class="text-input col-sm-5 push-sm-2" type="email" placeholder="Email" name="email"  ng-model="contact.email" ng-required="true">
+            <div class="col-sm-5" style="min-height: 160px">
+                <input class="text-input" type="text" placeholder="Name" name="name"  ng-model="contact.name" ng-required="true">
+                <span>
+                    <div ng-show="contactForm.name.$touched && contactForm.name.$invalid">
+                        <small style="color: red; display:block; text-align:center">Enter a valid name</small>
+                    </div>
+                </span>
+            </div>
+            <div class="col-sm-5 push-sm-2" style="min-height: 160px">
+                <input class="text-input" type="email" placeholder="Email" name="email"  ng-model="contact.email" ng-required="true">
+                <span>
+                    <div ng-show="contactForm.email.$touched && contactForm.email.$invalid">
+                        <small style="color: red; display:block; text-align:center">Enter a valid email</small>
+                    </div>
+                </span>
+            </div>
         </div>
         <div class="row">
-            <textarea class="col-sm-12" placeholder="Your Message" name="message" ng-model="contact.message"  ng-required="true"></textarea>
+            <div class="col-sm-12" style="min-height: 160px">
+                <textarea placeholder="Your Message" name="message" ng-model="contact.message"  ng-required="true"></textarea>
+                <span>
+                    <div ng-show="contactForm.message.$touched && contactForm.message.$invalid">
+                        <small style="color: red; display:block; text-align:center">Enter a message</small>
+                    </div>
+                </span>
+            </div>
         </div>
         <div class="row">
-            <button class="button" type="text" value="Send">Send</button> 
+            <div class="col-sm-12">
+                <button class="button btn" ng-disabled="contactForm.$invalid" type="text" value="Send">Send</button> 
+            </div>
         </div>
     </form>
 </div>

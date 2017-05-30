@@ -1,8 +1,10 @@
 var app = angular.module('app',['ngRoute', 'ngAnimate']);
 
-app.config(['$routeProvider',function($routeProvider) {
+app.config(['$routeProvider', '$locationProvider',function($routeProvider, $locationProvider) {
+    $locationProvider.html5Mode(true);
+    
     $routeProvider
-        .when('/home', {
+        .when('/', {
             templateUrl: 'views/home.html',
             controller: 'appController'
         })
@@ -12,9 +14,14 @@ app.config(['$routeProvider',function($routeProvider) {
         })
         .when('/contact', {
             templateUrl: 'views/contact.html',
+            controller: 'contactController'
+        })
+        .when('/contact-success', {
+            templateUrl: 'views/contact-success.html',
+            controller: 'contactController'
         })
         .otherwise({
-            redirectTo: '/home'
+            redirectTo: '/'
         })
 }]);
 
@@ -67,3 +74,9 @@ app.controller('appController', ['$scope', '$http', function($scope, $http) {
 
 
 }]);
+
+app.controller('contactController', ['$scope', '$location', function($scope, $location) {
+    $scope.sendMessage = function() {
+        $location.path('/contact-success');
+    }
+}])
